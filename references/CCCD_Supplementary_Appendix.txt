@@ -1,0 +1,3512 @@
+Supplementary Appendix: Causal Inference for
+Aggregated Treatment
+Carolina Caetano†
+
+Gregorio Caetano‡
+
+Brantly Callaway§
+
+Derek Dyal¶
+
+December 12, 2025
+
+The Supplementary Appendix contains proofs of supporting results from the main text, along
+with additional details and results for the application about enrichment activities.
+
+SA
+
+Supplementary Proofs
+
+SA.1
+
+Proofs of Results from Section 3
+
+Proof of Proposition C.2. To show the first part, notice that, under Assumption 1,
+E[Y |S = sd ] − E[Y |S = s′d ] = E[Y (sd )|S = sd ] − E[Y (s′d )|S = s′d ]
+= E[Y (sd ) − Y (s′d )|S = sd ] + E[Y (s′d )|S = sd ] − E[Y (s′d )|S = s′d ]
+= SATT(sd , s′d ) + SB(sd , s′d ),
+where the first equality holds by writing observed outcomes in terms of their corresponding potential
+outcomes; the second equality holds by adding and subtracting E[Y (s′d )|S = sd ]; and the third
+equality holds by the definitions of SATT(sd , s′d ) and SB(sd , s′d ).
+For the second part, suppose that Assumption 6 holds. Notice that
+SATT(sd , s′d ) = E[Y (sd ) − Y (s′d )|S = sd ]
+= E[Y (sd )|S = sd ] − E[Y (s′d )|S = sd ]
+= E[Y (sd )|S = sd ] − E[Y (s′d )|S = sd , D = d]
+= E[Y (sd )|S = sd ] − E[Y (s′d )|S = s′d , D = d]
+= E[Y (sd )|S = sd ] − E[Y (s′d )|S = s′d ]
+= E[Y |S = sd ] − E[Y |S = s′d ],
+where the first equality hold by the definition of SATT(sd , s′d ); the second equality follows by
+algebra; the third equality holds because D is fully determined by S (since S being equal to sd or
+†: carol.caetano@uga.edu, ‡: gregorio.caetano@uga.edu, §: brantly.callaway@uga.edu, ¶: ddyal@uga.edu.
+All authors are affiliated with the John Munro Godfrey, Sr. Department of Economics, University of Georgia.
+
+1
+
+s′d implies that D is equal to d); the fourth equality holds by Assumption 2 (or Assumption 6); the
+fifth equality holds again because S fully determines D; and the sixth equality holds by writing the
+potential outcomes into their observed counterparts.
+
+Proof of Lemma C.1. Take any sd−1 ∈ Sd−1 such that d > 0 where there are K total subtreatments, i.e. Sd−1 ⊂ ZK
+≥0 for all d > 0. By definition of Sd−1 , ||sd−1 ||1 = d − 1. Next, add one
+to any coordinate i of the vector sd where the ith element in sd−1 is not at the maximum of the
+support of the ith sub-treatment. Denote this vector as s∗ := sd−1 + 1i , where 1i is the unit vector
+of the ith coordinate. Without loss of generality, let i = 1. This implies that the ℓ1 norm of s∗ is:
+||s∗ ||1 =
+
+K
+X
+k=1
+
+|s∗k | =
+
+K
+X
+
+s∗k = (sd−1,1 + 1) + sd−1,2 + · · · + sd−1,K = ||sd−1 ||1 + 1 = (d − 1) + 1 = d
+
+k=1
+
+where the first quality holds by the definition of the ℓ1 norm; the second equality holds since each
+element of s∗ is in the non-negative integers, Z+ ; the third equality holds since each element of the
+vector s∗ is the corresponding element of vector sd−1 , except the first which is added by one; the
+fourth equality follows by algebra and the definition of the ℓ1 norm; the fifth equality holds by the
+definition of sd−1 ∈ Sd−1 ; and the last equality holds by addition. Hence, s∗ ∈ Sd by the definition
+of Sd , and we may write sd = s∗ .
+Now, recall that we defined without loss of generality that s∗ = sd−1 + 1i = sd . This implies that
+sd ≻+ sd−1 by the definition of congruent sub-treatment vectors. Therefore, for any sd−1 ∈ Sd−1
+with d > 0, there exists an sd ∈ Sd that is congruent to sd−1 .
+
+Proof of Lemma C.2. Since ||sd ||1 = d > 0,
+
+PK
+i
+
+sd,i = d by the definition of a member of Sd .
+
+This implies there is at least one coordinate j in sd with sd,j > 0. Next, take any other coordinate
+l such that l ̸= j. Since K ≥ 2, any l ̸= j can be chosen. Define another vector s′d = sd − 1j + 1l .
+Since we know that sd,j ∈ Z+ and sd,j > 0, subtracting one from the j th coordinate is valid. See
+that the coordinates:
+s′d,j = sd,j − 1 ≥ 0
+
+s′d,l = sd,l + 1 ≥ 0.
+
+Therefore, the ℓ1 norm of s′d is
+||s′d ||1 =
+
+K
+X
+i=1
+
+s′d,i =
+
+K
+X
+
+sd,i − 1 + 1 =
+
+i=1
+
+K
+X
+
+sd,i = d,
+
+i=1
+
+where the first equality holds by the definition of the ℓ1 norm on vectors in the positive orthant;
+the second equality holds by the definition of s′d ; and the fourth equality holds by the definition of
+sd ∈ Sd . This implies that s′d ∈ Sd also. Lastly, notice that:
+s′d = sd − 1j + 1l ⇐⇒ sd = s′d + 1j − 1l ,
+2
+
+which holds by rearrangement. Therefore, for any sd ∈ Sd with d > 0 and K ≥ 2, there always exists
+a s′d ∈ Sd with coordinates j, l such that sd differs from s′d by exchanging one unit in coordinate l
+for one unit in coordinate j, as desired. We say that sd is a unit exchange of s′d .
+
+′
+Proof of Lemma C.3. Take any sd , s′d ∈ Sd ⊂ ZK
+≥0 with d > 0 such that ||sd − sd ||1 > 2, where
+
+at least for some j th and lth coordinates sd,j < s′d,j and sd,l > s′d,l . By Lemma C.2, there exists a
+vector s⋆d ∈ Sd which is a unit exchange of sd . All that is left to show is that ||sd −s′d ||1 > ||s⋆d −s′d ||1 .
+Since s⋆d is a unit exchange from sd , then we may write s⋆d = sd + 1j − 1l , where 1j and 1l are unit
+vectors for some coordinates j and l such that j ̸= l.
+Since we know that any sd,i ∈ Z+ for all i ∈ {1, . . . , K}, we have
+sd,j < s′d,j ⇐⇒ sd,j < sd,j + 1 ≤ s′d,j
+⇐⇒ sd,j − s′d,j < sd,j + 1 − s′d,j ≤ 0
+⇐⇒ sd,j − s′d,j > sd,j + 1 − s′d,j ≥ 0
+and that
+sd,l > s′d,l ⇐⇒ sd,l > sd,l − 1 ≥ s′d,l
+⇐⇒ sd,l + s′d,l > sd,l − 1 + s′d,l ≥ 0
+⇐⇒ sd,l + s′d,l > sd,l − 1 + s′d,l ≥ 0,
+where in both results the first inequality is given; the second line is by addition or subtraction of
+one when all elements are in the set of positive integers; and the last line holds by addition or
+subtraction of the element s′d,i where i ∈ {j, l}. We will use these facts below. Next, see that:
+||s⋆d − s′d ||1 = ||sd + 1j − 1l − s′d ||1 =
+
+K
+X
+
+sd,i + 1j,i − 1l,i − s′d,i
+
+i=1
+
+=
+
+K
+X
+
+(sd,i − s′d,i ) + (sd,j + 1 − s′d,j ) + (sd,l − 1 − s′d,l )
+
+i̸=j i̸=l
+
+<
+
+K
+X
+
+(sd,i − s′d,i ) + (sd,j − s′d,j ) + (sd,l − s′d,l ) =
+
+K
+X
+
+sd,i − s′d,i = ||sd − s′d ||1 ,
+
+i=1
+
+i̸=j i̸=l
+
+where the first equality holds by the unit exchange property from Lemma C.2; the second equality
+holds by the definition of the ℓ1 -norm on ZK
+≥0 ; the third equality holds by the expansion of the
+sum; the inequality in the fourth line holds by the facts from above; the fifth equality holds by the
+rearrangement of the sum; and the sixth equality holds by the definition of the ℓ1 -norm again. This
+shows that ||sd − s′d ||1 > ||s⋆d − s′d ||1 . Hence, there always exists a vector s⋆d which is a unit-exchange
+away towards the terminating vector s′d when ||sd − s′d ||1 > 2.
+
+3
+
+Lemma SA.1 (Even Distances). For a fixed sd ∈ Sd , take any s⋆d ∈ Sd with d > 0 and K ≥ 2. The
+ℓ1 -norm distance 0 ≤ ||s⋆d − sd ||1 = 2 · m ≤ 2 · d, for some m ∈ Z+ such that m ≤ d. That is, any
+comparison of sub-treatment vectors with the ℓ1 -norm in the same aggregation set always results in
+an even number between 0 and 2 · d.
+Proof of Lemma SA.1. For a fixed sd ∈ Sd , take any element s⋆d ∈ Sd with d > 0 and K ≥ 2.
+Since both elements belong to Sd ,
+||s⋆d ||1 = ||sd ||1 = d
+
+K
+X
+
+⇐⇒
+
+sk,d =
+
+k=1
+
+K
+X
+
+s⋆k,d = d
+
+k=1
+
+since all sk,d ∈ Z+ . However, sd ̸= s⋆d necessarily. This implies some elements exist such that
+s⋆d,j < sd,j and s⋆d,l > sd,l . Hence:
+||s⋆d ||1 − ||sd ||1 = 0
+
+K
+X
+
+⇐⇒
+
+s⋆d,k −
+
+k=1
+
+sd,k = 0 ⇐⇒
+
+k=1
+
+K
+X
+
+⇐⇒
+
+K
+X
+
+K
+X
+
+
+s⋆d,k − sd,k = 0
+
+k=1
+K
+X
+
+
+s⋆d,k − sd,k +
+
+
+s⋆d,k − sd,k = 0
+
+k:s⋆d,k <sd,k
+
+k:s⋆d,k >sd,k
+
+⇐⇒
+
+K
+X
+
+K
+X
+
+
+s⋆d,k − sd,k =
+
+k:s⋆d,k >sd,k
+
+sd,k − s⋆d,k
+
+
+
+(S1)
+
+k:s⋆d,k <sd,k
+
+where the first line holds by the definition of Sd ; the second line holds by the definition of the
+ℓ1 -norm for numbers belonging to the non-negative integers; the third line holds by rearranging the
+sum; the fourth line holds since some elements of s⋆d are not equal to sd ; and the fifth line follows
+by algebra. This states that the total amount of units in s⋆d that are greater than the units in sd
+must be equal to the number of units in s⋆d that are less than the number of units in sd . Also note
+that both of these terms are positive:
+K
+X
+
+s⋆d,k − sd,k
+
+
+
+K
+X
+
+>0
+
+k:s⋆d,k >sd,k
+
+
+sd,k − s⋆d,k > 0.
+
+k:s⋆d,k <sd,k
+
+Therefore, the ℓ1 -norm:
+||s⋆d − sd ||1 =
+
+K
+X
+
+s⋆d,k − sd,k =
+
+X
+
+X
+
+
+s⋆d,k − sd,k +
+
+k:s⋆d,k >sd,k
+
+=2·
+
+s⋆d,k − sd,k
+
+k:s⋆d,k ̸=sd,k
+
+k=1
+
+=
+
+X
+
+X
+
+s⋆d,k − sd,k
+
+
+
+k:s⋆d,k <sd,k
+
+s⋆d,k − sd,k ,
+
+
+k:s⋆d,k >sd,k
+
+where the first line is by definition of the ℓ1 -norm; the second line holds since there will be a
+
+4
+
+remainder for all elements not equal between the two vectors; the third line follows by algebra;
+
+P
+and the last line holds by Equation (S1) above. We know that k:s⋆ >sd,k s⋆d,k − sd,k ∈ Z+ as
+d,k
+
+well. Therefore, ||s⋆d − sd ||1 is even always. Moreover, notice the distance at any two s⋆d , sd ∈ Sd is
+bound by 2 · d from the definition of Sd ; because the furthest two vectors could be in this measure
+of distance is where one vector has mass d in a coordinate which is zero in the other vector. Lastly,
+see that by the Reverse Triangle Inequality,
+||s⋆d − sd ||1 ≥ ||s⋆d ||1 − ||sd ||1 = d − d = 0,
+where ||s⋆d ||1 = ||sd ||1 = d since they are elements of Sd . Thus, the distance function g(s⋆d sd ) :=
+||s⋆d − sd ||1 is non-negative, bounded by 2 · d, and must result in an even integer.
+
+Proof of Proposition C.4. Let sd , s′d ∈ Sd ⊂ ZK
+≥0 for d > 0 and K ≥ 2. We show that there
+exists a finite sequence of vectors in Sd which begins at sd and terminates at s′d .
+We know by Lemma C.2 that there always exists a unit exchange for any sd ∈ Sd . Thus, there
+exists a vector s⋆d ∈ Sd such that s⋆d = sd + 1j − 1l for some coordinates j and l. By Lemma C.3,
+(1)
+
+(1)
+
+(1)
+
+there exists a vector s⋆d = sd such that ||sd − s′d ||1 > ||sd − s′d ||1 unless sd = s′d . So, there always
+exists a vector that is a unit exchange from the initial vector that is a shorter distance away from
+(1)
+
+= s′d , the claim holds trivially.
+(1)
+when sd ̸= s′d .
+(0)
+(b)
+Initialize sd = sd . While ||sd − s′d ||1 > 0 for index b ∈ Z:
+the terminating vector. If sd
+
+Next, we construct the process for
+
+(b)
+
+(b)
+
+1. Pick coordinates j and l such that the corresponding elements sd,j < s′d,j and sd,l > s′d,l .
+(b+1)
+
+2. Update by the unit exchange property (Lemma C.2): sd
+(b+1)
+
+3. If ||sd
+
+(b+1)
+
+− s′d ||1 > 0, store sd
+(b+1)
+
+Otherwise, if ||sd
+
+(b)
+
+= s d + 1 j − 1l .
+
+and iterate this process.
+
+− s′d ||1 = 0, stop the process.
+
+Here, we show that the process terminates and is finite. We know, by Lemmas C.3 and SA.1, that
+(b+1)
+
+at each step, 0 ≤ ||sd
+(b+1)
+
+||sd
+
+(b)
+
+− s′d ||1 < ||sd − s′d ||1 ≤ 2 · d. Also note that at each step, the distance
+
+(b)
+
+− s′d ||1 − ||sd − s′d ||1 between neighboring vectors relative to the terminating vector s′d in
+
+the chain decreases by two:
+(b+1)
+(b)
+||sd
+− s′d ||1 − ||sd − s′d ||1 =
+
+=
+
+K
+X
+
+(b+1)
+sd,i − s′d,i
+
+i=1
+K
+X
+
+−
+
+K
+X
+
+(b)
+
+sd,i − s′d,i
+
+i=1
+(b)
+
+(b+1)
+
+sd,i − s′d,i + sd,j
+
+i̸=j,i̸=l
+
+−
+
+K
+X
+i=1
+
+5
+
+(b)
+
+sd,i − s′d,i
+
+(b+1)
+
+− s′d,j − sd,l
+
+− s′d,l
+
+=
+
+K
+X
+
+(b)
+
+(b)
+
+(b)
+
+sd,i − s′d,i + sd,j + 1 − s′d,j − sd,l − 1 − s′d,l
+
+i̸=j,i̸=l
+
+−
+
+K
+X
+
+(b)
+
+sd,i − s′d,i
+
+i=1
+
+=
+
+K
+X
+
+(b)
+
+(b)
+
+(b)
+
+sd,i − s′d,i + sd,j − s′d,j + 1 − sd,l − s′d,l + 1
+
+i̸=j,i̸=l
+
+−
+
+K
+X
+
+(b)
+
+sd,i − s′d,i
+
+i=1
+
+=
+
+K
+X
+
+(b)
+sd,i − s′d,i
+
++2−
+
+K
+X
+
+(b)
+
+sd,i − s′d,i = 2,
+
+i=1
+
+i=1
+
+where the first equality holds by the definition of the ℓ1 -norm; the second equality holds by rear(b+1)
+
+rangement of the sum; the third equality holds by the definition of sd
+
+(b)
+
+as a unit exchange of sd ;
+
+the fourth equality holds by properties of the absolute value; and the fifth and sixth equalities hold
+by algebra. This demonstrates that each iteration of the process decreases the ℓ1 -norm distance by
+two.
+(b)
+
+(b)
+
+Since the measure ||sd − s′d ||1 for all possible sd ∈ Sd is non-negative, bound by 2 · d, always
+produces an even number (Lemma SA.1) and decreasing monotonically by two at each step, the
+process will eventually converge to exactly zero. Recall the distance between any two linked vectors
+in the chain is always two because they are always a unit exchange of one another. Furthermore,
+recall the largest distance between two vectors in the set Sd amounts to 2 · d for some d ∈ Z+ ,
+and each distance at each step must be even. Thus, decrements of two from an even number
+r = ||sd − s′d ||1 = 2 · m for some m ∈ Z+ such that m < d and 0 < r ≤ 2 · d will eventually reach
+zero, which terminates this process. By that, the number of iterations in this process will be equal
+(B)
+
+to m < d < ∞, which is finite. This implies that the final vector in the chain is sd
+
+= s′d , as
+
+desired, where B ∈ Z+ and B < ∞. Hence, this process terminates and results in a finite sequence
+(0)
+
+(1)
+
+(B)
+
+of vectors {sd = sd , sd , . . . , sd
+
+= s′d }.
+
+Proof of Lemma C.4. Take any sd−1 , s′d−1 ∈ Sd such that sd−1 = s′d−1 + 1j − 1l . By definition
+of congruence, a vector in Sd is congruent to a vector in Sd−1 if and only if sd = sd−1 + 1k for some
+coordinate k where 1k is the unit vector in the k th coordinate. Since Sd is not empty, by Lemma
+C.1, there always exists a congruent vector sd of sd−1 ∈ Sd−1 . Notice that
+sd−1 = s′d−1 + 1j − 1l ⇐⇒ sd−1 + 1l = s′d−1 + 1j ⇐⇒ sd = s′d ,
+where the first equality holds by assumption; the second equality follows by algebra; and the third
+equality holds by the definition of a vector in Sd . Note that sd ≻+ sd−1 (is congruent to sd−1 ), and
+s′d ≻+ s′d−1 (is congruent to s′d−1 ) by definition of congruency. But, sd = s′d . Hence, sd ≻+ sd−1
+6
+
+and sd ≻+ s′d−1 . This implies there is one sd ∈ Sd that is congruent with both sd−1 and s′d−1 , as
+desired. Note this vector can be found in two ways: (i) by adding one to the vector sd−1 in the
+corresponding coordinate l; or (ii) by adding one to the vector s′d−1 in the corresponding coordinate
+j.
+
+Proof of Lemma C.5. We prove Lemma C.5 by induction, for any K ∈ Z+ such that K ≥ 1,
+
+
+
+P
+K
+K
+2K
+that K
+d=1 d · d−1 is equivalent to K−1 . First, the base case is when K = 1. We have that:
+    
+K   
+X
+K
+K
+1
+1
+·
+=
+·
+= 1,
+d
+d−1
+1
+0
+d=1
+
+and for the claim:
+
+
+2K
+K −1
+
+
+
+
+=
+
+2
+1−1
+
+
+=1
+
+as desired. So, the claim holds true for K = 1. And, for K = 2, the sum is:
+        
+K   
+X
+K
+K
+2
+2
+2
+2
+·
+=
+·
++
+·
+= (2) · (1) + (1) · (2) = 4,
+d
+d−1
+1
+0
+2
+1
+d=1
+
+and for the claim:
+
+
+ 
+  
+2K
+22̇
+4
+=
+=
+=4
+K −1
+2−1
+1
+
+as desired. So, the claim holds true for K = 2. Next, we make the induction hypothesis (IH) that,
+for any K = k, the result holds true:
+ 
+
+k   
+X
+k
+k
+2k
+·
+=
+.
+d
+d−1
+k−1
+
+(IH)
+
+d=1
+
+Next, we take the induction step. Take K = k+1 ∈ Z+ . To show that
+
+Pk+1 k+1
+d=1
+
+d
+
+
+· k+1
+d−1 =
+
+2(k+1) 
+,
+(k+1)−1
+
+see that on the LHS, we have:
+ 
+ X
+   
+ 
+
+k+1 
+k+1 
+X
+k+1
+k+1
+k
+k
+k
+k
+·
+=
++
+·
++
+d
+d−1
+d−1
+d
+d−2
+d−1
+d=1
+d=1
+ 
+ 
+ 
+   
+   
+
+k+1 
+X
+k
+k
+k
+k
+k
+k
+k
+k
+=
+·
++
+·
++
+·
++
+·
+d−1
+d−2
+d−1
+d−1
+d
+d−2
+d
+d−1
+d=1
+ 
+ X
+ 
+
+k+1 
+k+1 
+X
+k
+k
+k
+k
+=
+·
++
+·
+d−1
+d−2
+d−1
+d−1
+d=1
+d=1
+|
+{z
+} |
+{z
+}
+(I)
+
+(II)
+
+7
+
+ X
+
+k+1   
+k+1   
+X
+k
+k
+k
+k
++
+·
++
+·
+,
+d
+d−2
+d
+d−1
+d=1
+d=1
+|
+{z
+} |
+{z
+}
+(III)
+
+(IV)
+
+where the first equality holds by binomial recursion; the second equality comes from algebra; and
+the third equality holds by the linearity property of the summation operator. We will deal with
+each part (I)-(IV) separately.
+(I) Observe that:
+ 
+ X
+ X
+ 
+
+k+1 
+k   
+k   
+X
+k
+k
+k
+k
+k
+k
+2k
+·
+=
+·
+=
+·
+=
+,
+d−1
+d−2
+m
+m−1
+m
+m−1
+k−1
+m=0
+
+d=1
+
+m=1
+
+where we shift the index to m = d − 1 in the first equality; we drop the m = 0 case since
+that term is zero in the second equality; and in the third equality, we apply the inductive
+hypothesis (IH).
+(II) We have:
+ 
+ X
+ 
+
+k 
+k+1 
+X
+k
+k
+k
+k
+·
+=
+·
+d−1
+d−1
+d−1
+d−1
+m=0
+d=1
+k  
+X
+k
+k!
+=
+·
+m
+m!(k − m)!
+m=0
+k  
+X
+k
+k!
+=
+·
+(k − m)!(k − (k − m))!
+m
+m=0
+  
+k   
+X
+k
+k
+2k
+=
+·
+=
+,
+m
+k−m
+k
+m=0
+
+where we shift the index to m = d − 1 in the first equality; the second equality is by definition
+of a binomial coefficient; the third equality is by algebra; and in the fourth equality, we apply
+Vandermonde’s identity from combinatorics.
+(III) Note that:
+ X
+ X
+   X
+k+1   
+k   
+k−2 
+k−2  
+X
+k
+k
+k
+k
+k
+k
+k
+k!
+·
+=
+·
+=
+·
+=
+·
+d
+d−2
+d
+d−2
+i+2
+i
+i
+(i + 2)!(k − (i + 2))!
+i=0
+i=0
+d=1
+d=1
+
+k−2  
+k−2   
+X
+X
+k
+k!
+k
+k
+=
+·
+=
+·
+i
+(k − (i + 2))!(k − (k − (i + 2))!
+i
+k − (i + 2)
+i=0
+i=0
+ 
+ 
+
+k−2   
+X
+k
+k
+k+k
+2k
+=
+·
+=
+=
+,
+i
+(k − 2) − i
+k−2
+k−2
+i=0
+
+where the first equality drops the index from k + 1 to k since that term will be zero; we shift
+8
+
+the index to i = d − 2 in the second equality since the first two terms will be zero in the
+sum; the third, fourth, fifth, and sixth equalities are by algebra; and the seventh equality is
+by Vandermonde’s identity.
+(IV) Note that:
+ X
+ 
+
+k+1   
+k   
+X
+k
+k
+k
+k
+2k
+·
+=
+·
+=
+,
+d
+d−1
+d
+d−1
+k−1
+d=1
+
+d=1
+
+where the first equality happens since at k + 1 the term is zero; and the second equality arises
+by the induction hypothesis (IH).
+Now, by (I)-(IV), we have:
+ 
+ 
+   
+ 
+
+k+1 
+X
+k+1
+k+1
+2k
+2k
+2k
+2k
+·
+=
++
++
++
+d
+d−1
+k−1
+k
+k−2
+k−1
+d=1
+
+   
+ 
+
+2k
+2k
+2k
+2k
+=
++
++
++
+k−1
+k
+k−2
+k−1
+
+ 
+
+2k + 1
+2k + 1
+=
++
+k
+k−1
+
+ 
+
+2k + 2
+2(k + 1)
+=
+=
+,
+k
+(k + 1) − 1
+as desired. Note that the third and fourth equalities are by the binomial recursive (Pascal’s) identity;
+and the fifth equality is by algebra. Thus, we have shown that the claim holds for any K.
+
+Proof of Proposition C.6. Given K > 1 trinary sub-treatments, we show that for all d ∈ D:
+P
+P⌊d/2⌋ K  K−r 
+(i) the total number of distinct disaggregated contrasts is K
+r=0
+d=1
+r · d−2r ; and (ii) the
+number of congruent disaggregated contrasts is the row-sum of a row-scaled extended trinomial
+triangle, whose elements are the sum of the top-three adjacent elements.
+1. Total distinct contrasts: First, we show that the number of K-tuples that sum to D = d is
+P⌊d/2⌋ K  K−r 
+r=0
+r · d−2r . The size of a tuple is K. Since each variable is trinary, each element in
+the K-tuple is either zero, one or two. This turns out to be equivalent to the elements of
+the trinomial triangle, where the rows are K and the columns are d. The trinomial triangle
+is similar to Pascal’s triangle except that each entry is the sum of the above three adjacent
+entries. The trinomial triangle takes the following form:
+
+9
+
+K = 0:
+
+1
+
+K = 1:
+
+1
+
+1
+
+1
+
+1
+
+2
+
+3
+
+2
+
+1
+
+1
+
+3
+
+6
+
+7
+
+6
+
+3
+
+1
+
+4
+
+10
+
+16
+
+19
+
+16
+
+10
+
+4
+
+K = 2:
+K = 3:
+K = 4:
+
+1
+
+1
+
+
+where it is known that each (K, d)th entry is equal to the trinomial coefficient K
+:=
+d
+2
+P⌊d/2⌋ K  K−r 
+r=0
+r · d−2r . Hence, if we wish to find the total number of distinct contrasts, we
+sum over all d ∈ {1, · · · , K} for the corresponding row (a fixed K), which can be expressed
+P K
+PK P⌊d/2⌋ K  K−r 
+as K
+r=0
+d
+d=1
+d 2 =
+r · d−2r , as desired.
+2. Congruent distinct contrasts: Next, we show that the number of congruent contrasts for K
+trinary sub-treatments is the sum of the rows of an extended trinomial triangle multiplied
+by K, where the rows are indexed by K and the columns are indexed by aggregate D = d.
+Analogously, the elements that make up this triangle are the sum of the three adjacent elements
+in the row above. The extended trinomial triangle has the following form:
+K = 1:
+
+1
+
+1
+
+1
+
+2
+
+2
+
+1
+
+1
+
+3
+
+5
+
+5
+
+3
+
+1
+
+1
+
+4
+
+9
+
+13
+
+13
+
+9
+
+4
+
+1
+
+5
+
+14
+
+26
+
+35
+
+35
+
+26
+
+14
+
+5
+
+K = 2:
+K = 3:
+K = 4:
+K = 5:
+
+1
+
+1
+
+For each K, the number of congruent contrasts can be listed and counted for verification by
+program.
+
+SA.2
+
+Proofs of Results from Section 4
+
+Lemma SA.2 (Moment Equations for Regression of Y on Aggregated D). For a discrete random
+variable D with non-negative support D := {0, . . . , N̄ } for some N̄ ∈ Z+ , and any non-degenerate
+random variable Y , we have the following results:
+E[D] =
+
+N̄
+X
+d=0
+
+d·pd
+
+E[D2 ] =
+
+N̄
+X
+
+d2 ·pd
+
+E[DY ] =
+
+d=0
+
+N̄
+X
+d=0
+
+where pd := P (D = d); and Ed := E[Y |D = d], ∀d ∈ D.
+
+10
+
+d·Ed ·pd
+
+E[Y ] = p0 ·E0 +
+
+N̄
+X
+d=1
+
+pd ·(Ed −E0 ),
+
+Proof of Lemma SA.2. For the first two equations, we have:
+E[D] =
+
+X
+
+d · P (D = d) =
+
+d∈D
+
+E[D2 ] =
+
+X
+
+N̄
+X
+
+d · pd ,
+
+d=0
+
+d2 · P (D = d) =
+
+d∈D
+
+N̄
+X
+
+d2 · pd ,
+
+d=0
+
+which are both by the definition of expectation, and where pd := P (D = d). For the last two
+equations, we have:
+E[DY ] = E[E[DY |D]] =
+
+N̄
+X
+
+N̄
+X
+
+d · E[Y |D = d] · P (D = d) =
+
+d=0
+
+E[Y ] = E[E[Y |D]] =
+
+N̄
+X
+
+d · Ed · pd ,
+
+d=0
+
+E[Y |D = d] · P (D = d) =
+
+d=0
+
+N̄
+X
+
+Ed · pd = p0 · E0 +
+
+d=0
+
+N̄
+X
+
+pd · (Ed − E0 ),
+
+d=1
+
+which both hold by the law of iterated expectations, and Ed := E[Y |D = d], ∀d ∈ D.
+
+Lemma SA.3 (Covariance of Outcomes Y and Aggregated Treatment D for Baseline-to-d Primitives). The covariance between a non-degenerate random variable Y and a discrete random variable
+D with support D = {0, . . . , N̄ } for some N̄ ∈ Z+ can be expressed as:
+Cov(Y, D) = E[Y D] − E[Y ] · E[D] =
+
+N̄
+X
+
+
+d · wd ·
+
+d=1
+
+E[Y |D = d] − E[Y |D = 0]
+d
+
+
+,
+
+where the weight wd = pd · (d − E[D]) represents the weighted distance from the mean of aggregated
+treatment D.
+Proof of Lemma SA.3. With the results from Lemma SA.2, we show the covariance between Y
+and aggregated treatment D can be expressed as:
+Cov(Y, D) = E[Y D] − E[Y ] · E[D]
+
+
+N̄
+N̄
+X
+X
+=
+d · Ed · pd − E0 · p0 +
+Ed · pd  · E[D]
+d=0
+
+=
+
+N̄
+X
+d=1
+
+=
+
+N̄
+X
+
+d=1
+
+d · Ed · pd −
+
+N̄
+X
+
+Ed · pd · E[D] − E0 · p0 · E[D]
+
+d=1
+
+Ed · pd · (d − E[D]) − E0 · p0 · E[D]
+
+d=1
+
+=
+
+N̄
+X
+
+
+Ed · pd · (d − E[D]) − E0 · 1 −
+
+d=1
+
+N̄
+X
+d=1
+
+11
+
+
+pd  · E[D]
+
+=
+
+N̄
+X
+
+
+pd · (d − E[D]) · Ed − E0 · E[D] −
+
+d=1
+
+=
+
+N̄
+X
+
+N̄
+X
+
+
+pd · E0 · E[D]
+
+d=1
+
+pd · ((d − E[D]) · Ed + E0 · E[D]) − E0 · E[D]
+
+d=1
+
+=
+
+N̄
+X
+
+pd · (d · Ed − E[D] · (Ed − E0 )) − E0 ·
+
+d=1
+
+=
+
+N̄
+X
+
+N̄
+X
+
+d · pd
+
+d=0
+
+pd · (d · Ed − E[D] · (Ed − E0 ) − d · E0 )
+
+d=1
+
+=
+
+N̄
+X
+
+pd · (d · (Ed − E0 ) − E[D] · (Ed − E0 ))
+
+d=1
+
+=
+
+N̄
+X
+
+pd · (d − E[D]) · (Ed − E0 ) :=
+
+d=1
+
+=
+
+N̄
+X
+d=1
+
+N̄
+X
+
+wd · (E[Y |D = d] − E[Y |D = 0])
+
+d=1
+
+
+d · wd ·
+
+E[Y |D = d] − E[Y |D = 0]
+d
+
+
+,
+
+where the weight wd = pd · (d − E[D]), as desired.
+
+Lemma SA.4 (Overall Weights with Scaled Baseline-to-d Primitives Sum to One). The weights in
+Proposition SA.1 from a regression involving scaled baseline-to-d building blocks sum to one.
+Proof of Lemma SA.4. The proof subsumes the proof that the regression weights in Proposition
+SA.1 involving scaled baseline-to-d building blocks also sum to one. Note that the sum of the overall
+weights:
+N̄ X
+X
+
+ω̃ reg (d) · P(S = sd |D = d) =
+
+d=1 s∈Sd
+
+N̄ X
+X
+d · (d − E[D])
+d=1 s∈Sd
+
+=
+
+N̄
+X
+d · (d − E[D])
+
+V ar(D)
+
+d=1
+
+=
+
+=
+
+V ar(D)
+
+N̄
+X
+
+=
+
+X
+
+· P (D = d) ·
+
+P (S = sd |D = d)
+
+s∈Sd
+
+d · (d − E[D])
+· P (D = d) · 1
+V ar(D)
+
+d=1
+PN̄
+2
+d=1 d − d · E[D]
+
+V ar(D)
+PN̄
+
+=
+
+· P (D = d) · P (S = sd |D = d)
+
+· P (D = d)
+
+2
+d=1 d · P (D = d) − E[D]
+
+E[D2 ] − E[D]2
+V ar(D)
+12
+
+PN̄
+
+d=1 d · P (D = d)
+
+V ar(D)
+V ar(D)
+=
+= 1,
+V ar(D)
+
+where the first equality holds by definition from Proposition SA.1; the second equality uses the linearity property of the summation operator; the third equality applies the unity axiom of probability;
+the fourth equality and fifth equality hold by algebra; the sixth equality holds by the definition of
+expectation; and the seventh equality holds by the definition of variance.
+
+Lemma SA.5 (Regression Weights with Scaled Baseline-to-d Primitives Are Negative, Positive
+and Zero). The regression weights in Proposition SA.1 involving scaled baseline-to-d building blocks
+have negative, positive, and possibly zero sign. That is, sgn(ω̃ reg (d)) ∈ {−1, 0, 1}.
+Proof of Lemma SA.5. We present here the proof that the regression weights on the scaledadjusted contrasts derived from Proposition SA.1 can be negative, positive, or zero. See that for
+any d ∈ D>0 , the regression weight is defined as:
+ω̃ reg (d) =
+
+d · (d − E[D])
+· P (D = d).
+V ar(D)
+
+Notice that, for non-degenerate D, V ar(D) > 0 and P (D = d) ≥ 0. Hence, the regression weight
+can be negative, positive, or zero if:
+ω̃ reg (d) ⋚ 0 ⇐⇒ (d − E[D]) ⋚ 0 ⇐⇒ d ⋚ E[D].
+That is, the regression weight from using scaled baseline-to-d building blocks is negative if d < E[D],
+positive if d > E[D], and zero if d = E[D].
+
+Proposition SA.1. Whether sub-treatments are observed or unobserved, α1 from the regression in
+Equation (1) can be decomposed as follows
+α1 =
+
+N̄
+X
+d=1
+
+ω̃ reg (d) ·
+
+E[Y |D = d] − E[Y |D = 0]
+,
+d
+
+or, written in terms of sub-treatment vectors, as
+α1 =
+
+N̄ X
+X
+
+ω̃
+
+reg
+
+
+(d) · P(S = sd |D = d) ·
+
+d=1 sd ∈Sd
+
+E[Y |S = sd ] − E[Y |S = 0K ]
+d
+
+
+,
+
+where ω̃ reg (d) = d·(d−E[D])
+Var(D) · P(D = d), which satisfies the following properties:
+(i)
+
+N̄
+X
+d=1
+
+ω̃
+
+reg
+
+(d) = 1, (ii)
+
+N̄ X
+X
+
+ω̃ reg (d) · P(S = sd |D = d) = 1, and (iii) ω̃ reg (d) ≶ 0 for d ≶ E[D].
+
+d=1 sd ∈Sd
+
+Proof of Proposition SA.1. We show that for any number of multivalued sub-treatments K ∈
+
+13
+
+Z+ using model (1), that the causal parameter α1 is:
+α1 =
+
+N̄
+X
+
+ω̃ reg (d) ·
+
+d=1
+
+=
+
+N̄ X
+X
+
+ω̃
+
+reg
+
+d=1 s∈Sd
+
+E[Y |D = d] − E[Y |D = 0]
+d
+
+
+E[Y |S = sd ] − E[Y |S = 0K ]
+(d) · P(S = sd |D = d) ·
+d
+
+
+.
+
+Choose any K ∈ Z+ to be the number of discrete treatments with countably positive finite support,
+S1 := {0, 1, . . . , N1 }, S2 = {0, 1, . . . , N2 }, . . . , DK = {0, 1, . . . , NK }. Denote the largest possible
+PK
+level of aggregated treatment as N̄ :=
+k=1 Nk . Our aggregated treatment variable is D :=
+PK
+k=1 Sk with support D := {0, 1, . . . , N̄ }. Assuming model (1), the causal parameter α1 is:
+α1 =
+
+Cov(Y, D)
+E[Y D] − E[Y ]E[D]
+.
+=
+V ar(D)
+E[D2 ] − E[D]2
+
+By application of Lemmas SA.2 and SA.3 into the numerator of α1 , we obtain the aggregate parameter:
+PN̄
+
+d=1 d · wd ·
+
+α1 =
+
+
+
+E[Y |D=d]−E[Y |D=0]
+d
+
+V ar(D)
+PN̄
+
+d=1 d · (pd · (d − E[D])) ·
+
+=
+=
+
+
+
+
+
+E[Y |D=d]−E[Y |D=0]
+d
+
+
+
+V ar(D)
+N̄
+X
+d · (d − E[D])
+
+V ar(D)
+
+d=1
+
+:=
+
+N̄
+X
+
+ω̃ reg (d) ·
+
+d=1
+
+
+· P (D = d) ·
+
+E[Y |D = d] − E[Y |D = 0]
+d
+
+
+
+E[Y |D = d] − E[Y |D = 0]
+,
+d
+
+(S2)
+
+where the weights inherited from the regression are ω̃ reg (d) = d·(d−E[D])
+V ar(D) · P (D = d), as we had
+sought. Notice, by SA.5, that the regression weight will be negative for d < E[D], positive for
+d > E[D], and zero if d = E[D].
+Next, we expand the result in (S2) to the level of sub-treatments. Denote the vector of subtreatment variables as s ∈ S := ×K
+k=1 Sk , where S is the Cartesian product of all sub-treatment
+supports. Denote the vector of realized sub-treatment values that have elements summing to D = d
+as sd . It is sufficient to show that for all s ∈ Sd and all d ∈ D, the difference E[Y |D = d]−E[Y |D = 0]
+can be expressed as:
+E[Y |D = d] − E[Y |D = 0] =
+
+X
+
+P (S = sd |D = d) · E[Y |S = sd ] − E[Y |D = 0]
+
+s∈Sd
+
+
+=
+
+X
+
+P (S = sd |D = d) · E[Y |S = sd ] − 
+
+s∈Sd
+
+
+X
+s∈Sd
+
+14
+
+P (S = sd |D = d) · E[Y |D = 0]
+
+=
+
+X
+
+P (S = sd |D = d) · (E[Y |S = sd ] − E[Y |D = 0]) .
+
+(S3)
+
+s∈Sd
+
+Plugging expression (S3) into (S2) produces:
+α1 =
+
+N̄
+X
+
+ω̃ reg (d) ·
+
+d=1
+
+=
+
+N̄
+X
+
+ω̃ reg (d) ·
+
+E[Y |D = d] − E[Y |D = 0]
+d
+P
+s∈Sd P (S = sd |D = d) · (E[Y |S = sd ] − E[Y |D = 0])
+d
+
+d=1
+
+=
+
+N̄ X
+X
+
+ω̃
+
+reg
+
+
+(d) · P (S = sd |D = d) ·
+
+d=1 s∈Sd
+
+E[Y |S = sd ] − E[Y |D = 0]
+d
+
+
+,
+
+P
+reg (d) = 1 (Lemma SA.4);
+as desired, where the weights satisfy the following properties: (i) N̄
+d=1 ω̃
+PN̄ P
+(ii) d=1 sd ∈Sd ω̃ reg (d) · P(S = sd |D = d) = 1 (Lemma SA.4); and ω̃ reg (d) ≶ 0 for d ≶ E[D]
+(Lemma SA.5).
+
+SA.3
+
+Proofs of Results from Appendix B.2
+
+Lemma SA.6 (Covariance of Outcome Y with Aggregated D). Following the results from Lemma
+SA.2, we have that the covariance between any non-degenerate random variable Y and a nonnegative, discrete random variable D with support D := {0, . . . , N̄ } for some N̄ ∈ Z+ , can be
+written as:
+Cov(Y, D) = E[Y D] − E[Y ] · E[D] =
+
+N̄
+X
+d=1
+
+
+
+N̄
+
+
+X
+
+wj  · E[Y |D = d] − E[Y |D = d − 1] ,
+j=d
+
+where wj := pj · (j − E[D]), for all j ∈ D.
+Proof of Lemma SA.6. Following the results from Lemma SA.2, see that the covariance between
+the outcome Y and aggregated treatment D can be written as:
+Cov(Y, D) = E[Y D] − E[Y ] · E[D]
+
+
+N̄
+N̄
+X
+X
+=
+d · Ed · pd − E0 · p0 +
+Ed · pd  · E[D]
+d=0
+
+=
+
+N̄
+X
+d=1
+
+=
+
+N̄
+X
+
+d=1
+
+d · Ed · pd −
+
+N̄
+X
+
+Ed · pd · E[D] − E0 · p0 · E[D]
+
+d=1
+
+Ed · pd · (d − E[D]) − E0 · p0 · E[D]
+
+d=1
+
+15
+
+=
+
+N̄
+X
+
+
+Ed · pd · (d − E[D]) − E0 · 1 −
+
+d=1
+
+=
+
+N̄
+X
+
+N̄
+X
+
+N̄
+X
+
+pd  · E[D]
+
+d=1
+
+
+pd · (d − E[D]) · Ed − E0 · E[D] −
+
+d=1
+
+=
+
+
+
+N̄
+X
+
+
+pd · E0 · E[D]
+
+d=1
+
+pd · ((d − E[D]) · Ed + E0 · E[D]) − E0 · E[D]
+
+d=1
+
+=
+
+N̄
+X
+
+pd · (d · Ed − E[D] · (Ed − E0 )) − E0 ·
+
+d=1
+
+=
+
+N̄
+X
+
+N̄
+X
+
+d · pd
+
+d=0
+
+pd · (d · Ed − E[D] · (Ed − E0 ) − d · E0 )
+
+d=1
+
+=
+
+N̄
+X
+
+pd · (d · (Ed − E0 ) − E[D] · (Ed − E0 ))
+
+d=1
+
+=
+
+N̄
+X
+
+pd · (d − E[D]) · (Ed − E0 ) :=
+
+d=1
+
+N̄
+X
+
+wd · (Ed − E0 ),
+
+(S4)
+
+d=1
+
+where pd := P (D = d); and Ed := E[Y |D = d], ∀d ∈ D. From (S4), we can further decompose the
+sum into incremental increases in aggregated treatment intensity:
+N̄
+X
+
+wd · (Ed − E0 ) = w1 · (E1 − E0 ) +
+
+N̄
+X
+
+wd · (Ed − E0 + Ed−1 − Ed−1 )
+
+d=2
+
+d=1
+
+= w1 · (E1 − E0 ) + w1 · (E2 − E0 ) +
+
+N̄
+X
+
+wd · (Ed − Ed−1 ) +
+
+N̄
+X
+
+wd · (Ed − Ed−1 ) +
+
+N̄
+X
+
+N̄
+X
+
+wd · (Ed−1 − E0 + Ed−2 − Ed−2 )
+
+d=3
+
+d=2
+
+= (w1 + w2 ) · (E1 − E0 ) +
+
+wd · (Ed−1 − E0 )
+
+d=2
+
+d=2
+
+= (w1 + w2 ) · (E1 − E0 ) +
+
+N̄
+X
+
+wd · (Ed − Ed−1 )
+
+d=2
+
++
+
+N̄
+X
+
+wd · (Ed−1 − Ed−2 ) +
+
+d=3
+
+N̄
+X
+
+wd · (Ed−2 − E0 )
+
+d=3
+
+= (w1 + w2 + · · · ) · (E1 − E0 ) +
+
+N̄
+X
+
+wd · (Ed − Ed−1 ) +
+
+d=2
+
++ ··· +
+
+N̄
+X
+
+N̄
+X
+d=1
+
+wd · (Ed−1 − Ed−2 )
+
+d=3
+
+wd · (Ed−(N̄ −3) − Ed−(N̄ −2) ) + wN̄ · (EN̄ − EN̄ −1 )
+
+d=N̄ −1
+
+=
+
+N̄
+X
+
+wd · (E1 − E0 ) +
+
+N̄
+X
+
+wd · (Ed − Ed−1 ) + · · ·
+
+d=2
+
+16
+
+N̄
+X
+
++
+
+wd · (Ed−(N̄ −3) − Ed−(N̄ −2) ) + wN̄ · (EN̄ − EN̄ −1 ).
+
+(S5)
+
+d=N̄ −1
+
+Notice that, collecting the terms for the difference (E2 − E1 ) in (S5), we have:
+w2 · (E2 − E1 ) + w3 · (E2 − E1 ) + · · · + wN̄ · (E2 − E1 ) =
+
+N̄
+X
+
+wd · (E2 − E1 ).
+
+d=2
+
+Similarly, for the difference (E3 − E2 ) in (S5) we have:
+w3 · (E3 − E2 ) + w4 · (E3 − E2 ) + · · · + wN̄ · (E3 − E2 ) =
+
+N̄
+X
+
+wd · (E3 − E2 ),
+
+d=3
+
+and so forth. Hence we may rewrite the expression in (S5) as:
+N̄
+X
+
+wd · (E1 − E0 ) +
+
+=
+
+wd · (E1 − E0 ) +
+
+=
+
+(Ed − Ed−1 ) ·
+
+N̄
+X
+
+N̄
+X
+
+wd · (E2 − E1 ) +
+
+wd · (Ed−(N̄ −3) − Ed−(N̄ −2) ) + wN̄ · (EN̄ − EN̄ −1 )
+
+N̄
+X
+
+wd · (E3 − E2 ) + · · · + wN̄ · (EN̄ − EN̄ −1 )
+
+d=3
+
+wj =
+
+N̄
+X
+d=1
+
+j=d
+
+d=1
+
+N̄
+X
+d=K−1
+
+d=2
+
+d=1
+N̄
+X
+
+wd · (Ed − Ed−1 ) + · · · +
+
+d=2
+
+d=1
+N̄
+X
+
+N̄
+X
+
+
+
+N̄
+X
+
+wj  · (Ed − Ed−1 )
+j=d
+
+
+
+N̄
+N̄
+
+
+X
+X
+
+wj  · E[Y |D = d] − E[Y |D = d − 1] ,
+=
+d=1
+
+j=d
+
+as desired.
+
+Lemma SA.7 (Variance of Aggregated D). For a discrete random variable D with non-negative
+support D := {0, . . . , N̄ } for some N̄ ∈ Z+ , we may express the variance of D as:
+2
+
+2
+
+V ar(D) = E[D ] − E[D] =
+
+N̄
+X
+
+d · wd ,
+
+d=1
+
+where wd := pd · (d − E[D]).
+Proof of Lemma SA.7.
+V ar(D) = E[D2 ] − E[D]2
+
+
+
+
+N̄
+N̄
+N̄
+N̄
+X
+X
+X
+X
+d2 · pd − 
+d · pd  · E[D] =
+d2 · pd − 
+d · pd  · E[D]
+=
+d=0
+
+=
+
+N̄
+X
+d=1
+
+d=1
+
+d=0
+2
+
+(d · pd − d · pd · E[D]) =
+
+N̄
+X
+d=1
+
+17
+
+d=1
+
+d · pd · (d − E[D]) =
+
+N̄
+X
+d=1
+
+d · wd ,
+
+where the first equality holds by definition; the second equality holds by Lemma SA.2 and by
+applying the unity property of probability; the third equality holds since the term for D = 0 is zero;
+and the fourth and fifth equality hold by the summation operator and by algebra.
+
+Lemma SA.8 (Re-expressing the Regression Weight with Marginal Primitives). The regression
+PN̄
+wj
+P (D≥d)·(E[D|D≥d]−E[D])
+reg
+
+weight ω (d) =
+from Proposition B.1 can be written as PN̄j=d  .
+V ar(D)
+d·w
+d
+
+d=1
+
+PN̄
+
+Proof of Lemma SA.8. We show that the quantity PN̄j=d
+
+wj
+
+d=1 d·wd
+
+ can be expressed as the regression
+
+weight ω reg (d) = P (D≥d)·(E[D|D≥d]−E[D])
+. First, see that we can write the conditional expectation,
+V ar(D)
+for any j ∈ Z+ :
+E[D|D ≥ j] =
+
+X
+
+P (D = d|D ≥ j) · d =
+
+d≥j
+
+X P (D = d, D ≥ j)
+P (D ≥ j)
+
+d≥j
+
+·d=
+
+X P (D = d)
+d≥j
+
+P (D ≥ j)
+
+· d.
+
+(S6)
+
+Next, from Equation (S6), note that the numerator of the ratio before is equivalent to:
+N̄
+X
+
+wj =
+
+N̄
+X
+
+P (D = j) · (j − E[D]) =
+
+P (D = j) · j −
+
+j=d
+
+j=d
+
+j=d
+
+N̄
+X
+
+= P (D ≥ d) · E[D|D ≥ d] −
+
+N̄
+X
+
+N̄
+X
+
+P (D = j) · E[D]
+
+j=d
+
+P (D = d) · E[D]
+
+j=d
+
+= P (D ≥ d) · E[D|D ≥ d] − P (D ≥ d) · E[D]
+= P (D ≥ d) · (E[D|D ≥ d] − E[D]) ,
+
+(S7)
+
+where the first equality is by algebra; the second equality is by Equation (S6); the third equality
+holds by the complement in Kolmogorov’s axioms of probability. Lastly, we know that by (SA.7)
+the denominator in the ratio is V ar(D). Both (S6) and (S7) imply that the regression weight can
+be written as:
+PN̄
+ω
+
+reg
+
+(d) = P
+
+j=d wj
+
+N̄
+d=1 d · wd
+
+=
+
+P (D ≥ d) · (E[D|D ≥ d] − E[D])
+,
+V ar(D)
+
+as desired.
+
+Lemma SA.9 (Non-negative Weights with Marginal Primitives). The weights in Proposition B.1
+from a regression involving marginal building blocks are non-negative.
+Proof of Lemma SA.9. First, the aggregate variable D is discrete with positive support no matter if the support of the discrete sub-treatments are binary or multivalued. Next, note that the
+conditional probabilities that make up the weights under causal-identifying assumptions at the
+18
+
+disaggregated level are non-negative by axioms of probability. Hence, the only term to study nonnegativity is for the ω reg (d) term, ∀d ∈ D := {1, . . . , N̄ }, where N̄ ∈ Z+ is the largest possible value
+in the support of the aggregated treatment variable D.
+PK
+
+For any d ∈ D>0 , recall that the regression weight ω reg (d) can be written as: ω reg (d) = PN̄j=d
+
+wj
+
+d=1 d·wd
+
+,
+
+where wj = P (D = j) · (d − E[D]). We break the proof into two parts. First we show that the
+denominator is positive; and then we prove that the numerator of ω reg (d) is non-negative.
+1. Denominator: See that the denominator of ω reg (d) is the variance of D by Lemma SA.7, which
+is positive for non-degenerate D. Thus, it suffices to show that the numerator is non-negative.
+2. Numerator: We show that the numerator is non-negative. Take any d¯ ∈ {1, . . . , N̄ } from
+the support of the aggregated treatment D. Assume for the sake of contradiction that the
+numerator is negative. This implies the following:
+N̄
+X
+
+wj < 0 ⇐⇒
+
+j=d¯
+
+N̄
+X
+
+P (D = j) · (j − E[D]) < 0
+
+j=d¯
+
+⇐⇒
+
+N̄
+X
+
+P (D = d) · (d − E[D]) −
+
+¯
+d−1
+X
+
+d=1
+
+⇐⇒
+
+N̄
+X
+
+P (D = d) · (d − E[D]) < 0
+
+d=1
+
+·P (D = d) · d −
+
+d=1
+
+N̄
+X
+
+P (D = d) · E[D] −
+
+d=1
+
+⇐⇒ E[D] − E[D] ·
+
+N̄
+X
+
+⇐⇒ E[D] 1 −
+
+N̄
+X
+
+P (D = d) +
+
+
+P (D = d) +
+
+d=1
+
+⇐⇒ E[D] · P (D = 0) +
+
+⇐⇒ E[D] 
+
+¯
+d−1
+X
+
+P (D = d) · E[D] <
+
+
+P (D = d) <
+
+d=0
+
+¯
+d−1
+X
+
+d=1
+¯
+d−1
+
+X
+
+X
+
+P (D = d) · E[D] <
+
+¯
+d−1
+X
+
+P (D = d) · E[D] < 0
+
+d=1
+
+d=1
+¯
+d−1
+
+P (D = d) · E[D] <
+
+d=1
+
+
+
+¯
+d−1
+X
+
+d=1
+¯
+d−1
+X
+
+P (D = d) · d +
+
+d=1
+
+d=1
+
+
+
+¯
+d−1
+X
+
+P (D = d) · d
+
+P (D = d) · d
+
+d=1
+¯
+d−1
+X
+
+P (D = d) · d
+
+d=1
+¯
+d−1
+X
+
+P (D = d) · d
+
+d=0
+
+Pd−1
+¯
+⇐⇒ E[D] <
+
+d=0 P (D = d) · d
+,
+Pd−1
+¯
+d=0 P (D = d)
+
+(S8)
+
+where the first line is by definition of wj ; the second line is by the complement of the previous
+sum; the third line is by the distributive property in algebra; the fourth line is by the definition
+of expectation and some algebra; the fifth line is by the complement axiom of probability and
+algebra; the sixth line is by the definition of probability at D = 0; the seventh line is by
+combining the terms on the LHS of the inequality; and the eighth line is by division, given
+non-degeneracy of the distribution of D.
+
+19
+
+If the relationship in (S8) holds, then any complete set of probabilities for a non-negative,
+discrete random variable will satisfy (S8). For this reason, let D be discrete uniform in
+probability. That is, ∀d ∈ D, P (D = d) = 1/(N̄ + 1). From (S8), this implies the following
+for the LHS of the inequality:
+E[D] =
+
+N̄
+X
+
+
+
+d=0
+
+
+=
+
+1
+N̄ + 1
+
+
+
+· 1 + 2 + · · · + N̄ =
+
+
+
+d · P (D = d) = 0 + 1 ·
+
+1
+N̄ + 1
+
+
+· · · + N̄ ·
+
+1
+N̄ + 1
+
+1
+N̄ + 1
+
+
+
+ 
+  
+N̄ (N̄ + 1)
+N̄
+·
+=
+,
+2
+2
+
+(S9)
+
+where the first equality holds by the definition of expectation; the second equality holds by
+the discrete uniform random variable; the third equality follows by algebra; and the fourth
+equality holds by the known sum of N̄ natural numbers. For the RHS of the inequality in
+(S8), we find that the numerator is:
+¯
+d−1
+X
+
+
+
+
+
+
+1
+1
+¯
+P (D = d) · d = 0 + 1 ·
+· · · + (d − 1) ·
+N̄ + 1
+N̄ + 1
+d=0
+
+
+
+  ¯
+
+
+1
+1
+(d − 1)d¯
+¯
+=
+· 1 + 2 + · · · + (d − 1) =
+·
+,
+2
+N̄ + 1
+N̄ + 1
+
+(S10)
+
+where the first equality holds by expansion of the sum; the second equality follows by algebra;
+and the third equality holds by applying the well known sum of (d¯− 1) natural numbers. And
+similarly, for the denominator in (S8):
+¯
+d−1
+X
+
+P (D = d) =
+
+d=0
+
+¯ 
+d−1
+X
+d=0
+
+1
+N̄ + 1
+
+
+
+= d¯ ·
+
+
+
+1
+N̄ + 1
+
+
+,
+
+(S11)
+
+where the first and second equalities hold by the definition of the probabilities from a discrete
+uniform distribution and by the expansion of the sum, respectively. By (S10) and (S11), the
+RHS becomes:
+
+
+Pd−1
+¯
+
+d=0 P (D = d) · d
+=
+Pd−1
+¯
+d=0 P (D = d)
+
+  ¯ ¯
+d
+¯
+
+· (d−1)
+2
+d−1
+
+
+=
+.
+d¯
+2
+
+1
+N̄ +1
+
+(S12)
+
+N̄ +1
+
+Thus, by (S9) and (S12), the inequality from (S8) states:
+Pd−1
+¯
+E[D] <
+
+d=0 P (D = d) · d
+Pd−1
+¯
+d=0 P (D = d)
+
+
+⇐⇒
+
+N̄
+2
+
+
+
+¯
+
+d−1
+¯
+<
+⇐⇒ N̄ < d¯ − 1 ⇐⇒ N̄ + 1 < d.
+2
+
+However, this is a contradiction since d¯ ∈ {1, . . . , N̄ }. Therefore, it must be that the numerator
+PN̄
+d=d wj ≥ 0.
+Since the denominator is positive and the numerator is non-negative, then their ratio is non-negative.
+Thus, the regression weight, and hence all weights under causal identification assumptions, ω reg (d) ≥
+20
+
+0 for any d ∈ {1, . . . , N̄ }.
+
+Lemma SA.10 (Overall Weights from Regression with Marginal Primitives Sum to One). The
+weights in Proposition B.1 from a regression involving marginal building blocks sum to one.
+Proof of Lemma SA.10. This subsumes the proof that regression weights alone sum to one.
+For any weighting function w(sd , sd−1 ) on the marginal sub-treatment contrasts that satisfies the
+properties of Proposition C.3, note that the sum:
+N̄
+X
+
+X
+
+ω reg (d) · w(sd , sd−1 ) =
+
+N̄ X
+X
+
+ω reg (d) · P (S = sd |D = d) · P (S = sd−1 |D = d − 1)
+
+d=1 s∈Sd
+
+d=1 (sd ,sd−1 )
+∈ M(d)
+
+=
+
+N̄
+X
+
+PN̄
+
+wj
+ · P (S = sd |D = d) · P (S = sd−1 |D = d − 1)
+P j=d
+N̄
+d
+·
+w
+d
+d=1 (sd ,sd−1 )
+d=1
+X
+
+∈ M(d)
+
+=
+
+PN̄
+
+N̄
+X
+
+X
+wj
+·
+P j=d
+P (S = sd |D = d) · P (S = sd−1 |D = d − 1)
+N̄
+d
+·
+w
+d
+d=1
+(sd ,sd−1 )
+d=1
+∈ M(d)
+
+PN̄ PN̄
+d=1
+
+= P
+
+j=d wj
+
+N̄
+d=1 d · wd
+
+PN̄
+
+d · wd
+= 1,
+N̄
+d=1 d · wd
+
+ · 1 = Pd=1
+
+where the first and second equality hold by the definition in Proposition B.1. The third equality
+uses the linearity property of the summation operator. The fourth and fifth equality follow by
+algebra.
+
+Lemma SA.11 (Largest Regression Weight with Marginal Primitives). The regression weights in
+Proposition B.1 from a regression involving marginal building blocks are increasing as d approaches
+E[D] and decreasing as d moves farther away from E[D].
+Proof of Lemma SA.11. Suppose that D is a discrete, non-negative random variable with countably finite support and mean E[D] ∈ R+ .1 Denote the support of D as D := {0, 1, . . . , N̄ }. From
+the regression decomposition using the marginal-type building blocks, we saw that the regression
+weight for each realization of D is: ω reg (d) =
+
+PN̄
+
+j=d wj
+V ar(D) , where wj
+
+= P (D = j) · (j − E[D]), for
+
+all j ≥ d ∈ D>0 . Since each weight is scaled by the variance of D, a positive quantity, it will be
+sufficient to show that the weights are increasing/decreasing in the numerator only. Next, we break
+the proof into cases.
+1
+
+The proof holds analogously for the case where support is countably infinite. Simply replace N̄ with ∞.
+
+21
+
+1. Case 1 (Increasing): Take any d ∈ D such that d < E[D] and d + 1 ≤ E[D]. This implies:
+N̄
+X
+j=d
+
+wj =
+
+N̄
+X
+
+P (D = j) · (j − E[D]) = P (D = d) · (d − E[D]) +
+
+j=d
+
+N̄
+X
+
+P (D = j) · (j − E[D])
+
+j=d+1
+N̄
+X
+
+= P (D = d) · (d − E[D]) +
+
+wj .
+
+(S13)
+
+j=d+1
+
+Therefore, the difference between the weight at d and d + 1 is:
+N̄
+X
+
+wj −
+
+j=d
+
+N̄
+X
+
+wj = P (D = d) · (d − E[D]) < 0,
+
+j=d+1
+
+since probability is non-negative and by assumption d < E[D]. Therefore, the weight at D = d
+is smaller than the weight at D = d + 1, ω reg (d) < ω reg (d + 1). This implies that the weights
+are increasing as d increases for values of D < E[D].
+2. Case 2 (Decreasing): Take any d ∈ D such that d > E[D]; and hence d + 1 > E[D]. From
+(A), this implies that the difference between the weight at d and d + 1 is:
+N̄
+X
+
+wj −
+
+j=d
+
+N̄
+X
+
+wj = P (D = d) · (d − E[D]) > 0,
+
+j=d+1
+
+since probability is non-negative and by assumption d > E[D]. Therefore, the weight at D = d
+is larger than the weight at D = d + 1, ω reg (d) > ω reg (d + 1). This implies that the weights
+are decreasing as d increases for values of D > E[D].
+3. Case 3 (Knife-edge): Take any d ∈ D such that d = E[D]; and hence d + 1 > E[D]. By (S13),
+the difference between the weight at d and d + 1 is:
+N̄
+X
+j=d
+
+wj −
+
+N̄
+X
+
+wj = P (D = d) · (d − E[D]) = 0,
+
+j=d+1
+
+since probability is non-negative and by assumption d = E[D]. From (1), we know that all
+weights below E[D] will be increasing. Since d = E[D], then all weights below D = d must
+be increasing. From (2), we know all weights above E[D] will be decreasing. Since E[D] = d,
+then all weights above D = d must be decreasing. Therefore, the weight at D = d is the
+largest when E[D] = d.
+4. Case 4 (Fuzzy): Take any d ∈ D such that d < E[D] < d + 1, and d and d + 1 are the closest
+values on the support of D to E[D]. From (S13), the difference between the weight at d and
+
+22
+
+d + 1 is:
+N̄
+X
+
+N̄
+X
+
+wj −
+
+j=d
+
+wj = P (D = d) · (d − E[D]) < 0,
+
+j=d+1
+
+since probability is non-negative, and by assumption d < E[D]. Hence, the weight at D = d+1
+must be larger than the weight at D = d, ω reg (d) < ω reg (d + 1). Next, by re-application of
+(S13), see that the difference between weights at D = d + 1 and D = d + 2 is:
+N̄
+X
+
+N̄
+X
+
+wj −
+
+j=d+1
+
+wj = P (D = d + 1) · ((d + 1) − E[D]) > 0
+
+j=d+2
+
+since probability is non-negative, and by assumption d + 1 > E[D]. That is, the weight at
+D = d + 2 must be smaller than the weight at D = d + 1, ω reg (d + 1) > ω reg (d + 2). Hence,
+ω reg (d + 1) > ω reg (d) and ω reg (d + 1) > ω reg (d + 2). This implies that, no matter the absolute
+distance between d and d + 1 and E[D], the largest weight will always go to the discrete value
+just above the mean, E[D].
+Cases (1)—(4) imply that the regression assigns weights that increase as d nears E[D] and decrease
+beyond it. In case (3), the largest weight occurs exactly at the value of D that equals the mean,
+E[D] = d. In case (4), the largest weight is placed on the nearest discrete value of D just above the
+
+
+ 
+mean, E[D] D , where · D is the ceiling function with respect to the support of D.
+
+Proof of Proposition B.1. We show that for any K ∈ Z+ using model (1) that the causal parameter α1 is:
+α1 =
+
+N̄
+X
+
+
+
+ω reg (d) · E[Y |D = d] − E[Y |D = d − 1]
+
+d=1
+
+=
+
+N̄
+X
+
+X
+
+
+
+ω ⋆ (sd , sd−1 ) · E[Y |S = sd ] − E[Y |S = sd−1 ] ,
+
+d=1 (sd ,sd−1 )
+∈ M(d)
+
+where the weights in Proposition B.1 can be extended to the sub-treatment level in the second
+equality under unconfoundedness (Assumption 2).
+Choose any K ∈ Z+ to be the number of discrete sub-treatments with positive countably finite
+support, S1 := {0, 1, . . . , N1 }, S2 = {0, 1, . . . , N2 }, . . . , SK = {0, 1, . . . , NK } for Nk ∈ Z+ for all
+P
+k ∈ {1, . . . , K}. Denote the largest possible level of aggregated treatment as N̄ := K
+k=1 Nk . Our
+PK
+aggregated treatment variable is D := k=1 Sk with support D := {0, 1, . . . , N̄ }, which is countably
+finite.2 Following the steps in Lemmas SA.2, SA.6 and SA.7 from above, we can write the aggregate
+2
+
+The proof follows analogously for the countably infinite case, permitting N̄ = ∞.
+
+23
+
+parameter from the regression as:
+
+α1 =
+PN̄
+
+where PN̄j=d
+
+wj
+
+d=1 d·wd
+
+PN̄
+wj
+P j=d
+
+N̄
+d=1 d·wd
+
+Cov(Y, D)
+=
+V ar(D)
+
+PN̄ PN̄
+d=1
+
+j=d wj
+
+
+
+PN̄
+
+d=1 d · wd
+
+
+
+· E[Y |D = d] − E[Y |D = d − 1] ,
+
+ is the regression weight, ω reg (d). Next, we know by Lemma SA.8 that ω reg (d) =
+
+can be written as P (D≥d)·(E[D|D≥d]−E[D])
+. Thus, for any K ∈ Z+ number of nonV ar(D)
+
+exclusive, discrete, multivalued sub-treatments, the identified parameter under model (1) is:
+
+PN̄ PN̄
+
+
+w
+d=1
+j=d j
+α1 =
+·
+E[Y
+|D
+=
+d]
+−
+E[Y
+|D
+=
+d
+−
+1]
+PN̄
+d=1 d · wd
+=
+
+N̄
+
+X
+P (D ≥ d) · (E[D|D ≥ d] − E[D]) 
+· E[Y |D = d] − E[Y |D = d − 1]
+V ar(D)
+d=1
+
+:=
+
+N̄
+X
+
+
+
+ω reg (d) · E[Y |D = d] − E[Y |D = d − 1] ,
+
+d=1
+
+as was to be shown, and where the regression weights satisfy the properties: (i) positive for all
+N̄
+X
+ω reg (d) = 1 (Lemma SA.10); and (iii) decreasing in distance
+values of d ∈ D (Lemma SA.9); (ii)
+d=1
+
+from E[D] (Lemma SA.11).
+
+SA.4
+
+Proofs of Results from Appendix B.3
+
+Lemma SA.12. Under Assumptions 1, 2, 4 and 8, and if sub-treatments are observed, w̃+ (sd , sd−1 )
+is identified and given by
++
+
+w̃ (sd , sd−1 ) =
+
+
+
+P S = sd D = d × P(S = sd−1 D = d − 1
+X
+
+.
+P S = s′d D = d × P(S = s′d−1 D = d − 1
+(s′d−1 ,s′d )∈M+ (d)
+
+Proof of Lemma SA.12. Notice that
+P S(d) = sd , S(d − 1) = sd−1 D ∈ {d, d − 1}
+
+
+
+
+
+= P S(d) = sd S(d − 1) = sd−1 , D ∈ {d, d − 1} × P(S(d − 1) = sd−1 D ∈ {d, d − 1}
+
+
+= P S(d) = sd D ∈ {d, d − 1} × P(S(d − 1) = sd−1 D ∈ {d, d − 1}
+
+
+= P S(d) = sd D = d × P(S(d − 1) = sd−1 D = d − 1
+
+
+= P S = sd D = d × P(S = sd−1 D = d − 1 ,
+where the first equality holds by the definition of conditional probability; the second equality uses
+Assumption 8 on the first term in the expression; the third equality holds by applying Assumption 4
+24
+
+to the second term; and the last equality holds immediately since S(d) is the observed sub-treatment
+vector given D = d and S(d − 1) is the observed sub-treatment vector given D = d − 1. Then, the
+lemma then holds by the definition of w̃+ (sd , sd−1 ) in Equation (6).
+
+^ + (d) and
+Proof of Proposition B.2. The result holds immediately from the definition of AMATT
+by Proposition C.1 and Lemma SA.12.
+
+SB
+
+Supplementary Empirical Analysis
+
+SB.1
+
+Data Description
+
+We present summary statistics from the full sample from Caetano, Caetano, and Nielsen (2024)
+based on the sub-treatment categories in Table S1. All elements of Table S1 represent means of
+each characteristic by sub-treatment. Participation denotes the number of children in the sample
+who participated at all in that specific enrichment activity. Mean hours represents the average
+number of hours per week that children in the survey spent on each enrichment activity. Mean
+proportion of enrichment represents the average proportion of that particular enrichment activity
+out of all enrichment activities performed per week. On average, children spent about 0.64 hours per
+week in the sample on enrichment activities, as they have been defined. Moreover, approximately
+46% of the sample is ever treated through enrichment activity and 54% of the sample is untreated.
+We notice that most participation in enrichment is spent on lessons, and very little enrichment time
+is used for before & after school care programs.
+Table S1: Summary Statistics of Sub-treatments for Enrichment Activity
+Sub-Treatment
+Lessons
+Sports, Structured
+Volunteer
+Before & After School Programs
+
+Participation
+
+Mean Hours
+
+Mean Proportion of Enrich.
+
+0.31
+0.19
+0.12
+0.05
+
+0.25
+0.19
+0.13
+0.07
+
+0.50
+0.25
+0.18
+0.07
+
+Notes: Curated data from the Childhood Development Supplement of the PSID (N = 5, 736).
+
+In Figure S1 below, we present the empirical CDF and PDF, respectively. We see bunching
+at zero enrichment hours in the distribution of aggregated treatment variable. The median total
+enrichment activity lies at zero hours of enrichment in a week. There are fewer and fewer children
+that participate in more hours of enrichment. Although seldom, some children are still observed to
+be participating in about an average of 4 or more hours of enrichment activities per week.
+
+25
+
+Figure S1: Empirical CDF and PDF of Total Hours of Enrichment Activities for All Children
+
+(a) Empirical CDF.
+
+SB.2
+
+(b) Empirical PDF.
+
+Full Sample Analysis of Non-Cognitive Skills
+
+This section expands the analysis from Section 5 to the full sample in Caetano, Caetano, and Nielsen
+(2024).
+
+26
+
+Figure S2: Average Amount of Sub-treatments across Each Level of Aggregated Treatment.
+
+Notes: The figure displays the average amount of each sub-treatment as a function of the total amount of
+treatment, D.
+
+Table S2: Overall Aggregate Parameter Estimates for Full Sample
+Parameter
+
+Estimate
+
+S Data
+
+Incongruity
+
+I. Regression
+α1
+
+0.052 (0.013)
+
+E[δ(D)|D > 0]
+E[AMATT+ (D)|D > 0]
+
+0.016 (0.009)
+0.002 (0.014)
+
+E[AATT(D)|D > 0]
+E[AATT(D)/D|D > 0]
+
+0.080 (0.026)
+0.064 (0.032)
+
+×
+
+II. Marginal
+×
+×
+
+III. Non-marginal
+
+Observations
+
+5,736
+
+Notes: Parameter estimates of different target parameters on children’s non-cognitive skills.
+Standard errors in parentheses obtained by bootstrap (1000 iterations). The “S Data” column indicates if sub-treatment data are required for estimation. The “Incongruity” column
+indicates when incongruent comparisons are present in the parameter. The estimates of
+E[AMATT+ (D)|D > 0] use the scaled product weights from Equation (7) in the main text.
+
+27
+
+Figure S3: d-Specific Aggregate Parameter Estimates for Full Sample
+
+(a) Aggregate Marginal ATT.
+
+(b) Aggregate ATT.
+
+Notes: The figure provides estimates of the target parameters discussed in this paper for enrichment activity
+amounts on non-cognitive skills in children for the full sample. Panel (a) displays estimates of δ(d) and
+AMATT+ (d) with 95% confidence intervals across all D = d. The value of each estimate, and the percent
+change from δ(d) to AMATT+ (d), are listed at the top of Panel (a): δ(d)—top; AMATT+ (d)—middle; and
+percent change—bottom. The estimates of AMATT+ (d) use the scaled product weights from Equation (7)
+in the main text. Panel (b) displays estimates of AATT(d) and 95% confidence intervals across all D = d,
+and an overall AATT which weights the AATT(d)’s by the distribution of the aggregated treatment D. At
+D = 6.0 hours of total enrichment, only a single congruent comparison is possible between D = 5.5 and
+D = 6.0 in the data; hence, confidence intervals are not displayed for AMATT+ (d = 6).
+
+28
+
+
