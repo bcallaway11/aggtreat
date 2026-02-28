@@ -1,0 +1,10 @@
+^\.claude$
+^\.git$
+^CLAUDE\.md$
+^MEMORY\.md$
+^references$
+^replication_files$
+^data-raw$
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.github$

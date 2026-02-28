@@ -1,0 +1,34 @@
+Package: aggtreat
+Title: Causal Inference for Aggregated Treatment
+Version: 0.1.0
+Authors@R: c(
+    person("Brantly", "Callaway", , "brantly.callaway@uga.edu", role = c("aut", "cre")),
+    person("Carolina", "Caetano", , "carol.caetano@uga.edu", role = "aut"),
+    person("Gregorio", "Caetano", , "gregorio.caetano@uga.edu", role = "aut"),
+    person("Derek", "Dyal", , "ddyal@uga.edu", role = "aut")
+  )
+Description: Implements the methodology from Caetano, Caetano, Callaway, and Dyal (2025)
+    "Causal Inference for Aggregated Treatment." Provides tools to diagnose and address
+    problems that arise when a treatment variable aggregates multiple underlying
+    sub-treatments, including classification of congruent and incongruent sub-treatment
+    pairs, computation of minimally incongruent weights via linear programming,
+    estimation of aggregate average treatment effects (AATT) and aggregate marginal
+    average treatment effects (AMATT+), and a regression weight decomposition.
+    Also replicates all quantitative results from the paper's empirical application.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    lpSolve,
+    ggplot2,
+    stats
+Suggests:
+    haven,
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+URL: https://github.com/bcallaway11/aggtreat
+BugReports: https://github.com/bcallaway11/aggtreat/issues

@@ -1,0 +1,26 @@
+# R package standard ignores
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# roxygen2 / devtools
+man/*.Rd
+NAMESPACE
+
+# Build artifacts
+*.tar.gz
+*.zip
+inst/doc/
+
+# Data-raw (keep scripts, not generated artifacts)
+data-raw/*.csv
+data-raw/*.rda
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive data
+replication_files/002_DataEstimation.dta
